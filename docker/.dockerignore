@@ -4,3 +4,4 @@
 **/log/
 **/*.gif
 **/*.png
+!**/meshes/*.png

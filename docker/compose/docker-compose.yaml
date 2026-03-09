@@ -1,9 +1,6 @@
 services:
   spot_sim:
-    build:
-      context: ../../
-      dockerfile: docker/Dockerfile
-    image: spot_gazebo_ros2:humble
+    image: ghcr.io/kronton/spot_gazebo_ros2:latest
     container_name: spot_sim
     environment:
       - DISPLAY=${DISPLAY}
@@ -14,6 +11,7 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority:ro
+      - ../../:/ros2_ws/src/spot_gazebo_ros2/:rw
     network_mode: host
     privileged: true
     deploy:
